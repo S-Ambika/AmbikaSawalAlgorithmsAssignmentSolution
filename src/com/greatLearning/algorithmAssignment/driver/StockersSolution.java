@@ -18,19 +18,18 @@ public class StockersSolution {
 	private void solutionImplementation() {
 		System.out.println("Enter the no. of companies : ");
 		arr_size = sc_input.nextInt();
-		if(arr_size>0) {
-		stock_price_arr = new double[arr_size];
-		isRise_in_stock_price = new boolean[arr_size];
-		insertValues(stock_price_arr, isRise_in_stock_price);
-		/*
-		 * asking user to select operation till user exit the program
-		 */
-		flag = true;
-		while (flag) {
-			taskToBePerformed();
-		}
-		}
-		else {
+		if (arr_size > 0) {
+			stock_price_arr = new double[arr_size];
+			isRise_in_stock_price = new boolean[arr_size];
+			insertValues(stock_price_arr, isRise_in_stock_price);
+			/*
+			 * asking user to select operation till user exit the program
+			 */
+			flag = true;
+			while (flag) {
+				taskToBePerformed();
+			}
+		} else {
 			System.out.println("Invalid!!! Enter more than 0 value..");
 
 		}
@@ -106,7 +105,7 @@ public class StockersSolution {
 				break;
 
 			default:
-				System.out.println("Please select valid input value....");
+				System.out.println("Please select valid input value.");
 				break;
 			}
 		}
@@ -127,11 +126,10 @@ public class StockersSolution {
 				comp_count = i + 1;
 				System.out.println("\nEnter current stock price of the company " + comp_count + " : ");
 				arr[i] = sc_input.nextDouble();
-				if(arr[i]>0) {
-				System.out.println("Whether company's stock price rose today compare to yesterday?(true/false)");
-				boolArr[i] = sc_input.nextBoolean();
-				}
-				else {
+				if (arr[i] > 0) {
+					System.out.println("Whether company's stock price rose today compare to yesterday?(true/false)");
+					boolArr[i] = sc_input.nextBoolean();
+				} else {
 					System.out.println("You have entered invalid values");
 					System.exit(1);
 				}
