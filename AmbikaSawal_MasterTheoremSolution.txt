@@ -1,0 +1,54 @@
+1) T (n) = 3T (n/2) + n
+
+Solution :
+
+On comapring with standard form and putting value of a,b,k,p accordingly:
+
+T(n) = Θ(n^log2[base] 3)
+
+=> [T(n) = Θ(n^1.58)]approx
+
+....................................................................................................................................................
+
+2) T (n) = 64T (n/8) − n^2(log n) 
+
+Solution : 
+
+On Comparing with standard form, f(n) is negative here
+therefore, Master Theorum can not be applicable in this equation
+
+=> [T(n) = NA]
+
+
+........................................................................................................................................................
+
+3) T (n) = 2nT (n/2) + n^n
+
+Solution : 
+
+On Comparing with standard form, f(n) should be polynomial but here  n^n is not polynomial
+therefore, Master Theorum can not be applicable in this equation
+
+=> [T(n) = NA]
+
+.............................................................................................................................................................
+
+4) T (n) = 3T (n/3) + n/2 
+
+Solution:
+
+Above equation can be re-written as T(n) = 3T(n/3)+n
+On comapring with standard form and putting value of a,b,k,p accordingly:
+=> [T(n) = Θ(nlogn)]
+
+...........................................................................................................................................................
+
+5) T (n) = 7T (n/3) + n^2
+
+Solution:
+
+On comapring with standard form and putting value of a,b,k,p accordingly:
+
+=> [T(n) = Θ(n^2)]
+
+.............................................................................................................................................................
