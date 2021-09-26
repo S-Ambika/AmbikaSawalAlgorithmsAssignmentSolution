@@ -1,10 +1,9 @@
 package com.greatLearning.algorithmAssignment.utils;
 
-public class SearchingSortingHelper 
-{
+public class SearchingSortingHelper {
+	int mid;
 
-
-	public void mergeSort(double[] arr, int left, int mid, int right) {
+	public void mergeSort(double[] arr, int left, int mid, int right, boolean isAscending) {
 		// TODO Auto-generated method stub
 		int n1 = mid - left + 1;
 		int n2 = right - mid;
@@ -27,12 +26,23 @@ public class SearchingSortingHelper
 		// Initial index of merged sub-array array
 		int k = left;
 		while (i < n1 && j < n2) {
+
 			if (leftArray[i] <= rightArray[j]) {
-				arr[k] = leftArray[i];
-				i++;
+				if (isAscending) {
+					arr[k] = leftArray[i];
+					i++;
+				} else {
+					arr[k] = rightArray[j];
+					j++;
+				}
 			} else {
-				arr[k] = rightArray[j];
-				j++;
+				if (isAscending) {
+					arr[k] = rightArray[j];
+					j++;
+				} else {
+					arr[k] = leftArray[i];
+					i++;
+				}
 			}
 			k++;
 		}
@@ -51,27 +61,25 @@ public class SearchingSortingHelper
 			k++;
 		}
 	}
-	
-	public double[] sortInAscending(double[] arr, int left, int right) {
+
+	public double[] sort(double[] arr, int left, int right, boolean isAscending) {
 		// TODO Auto-generated method stub
 		if (left < right) {
 			// Find the middle point
 			int mid = (left + right) / 2;
 
 			// Sort first and second halves
-			sortInAscending(arr, left, mid);
-			sortInAscending(arr, mid + 1, right);
+			sort(arr, left, mid, isAscending);
+			sort(arr, mid + 1, right, isAscending);
 
 			// Merge the sorted halves
-			mergeSort(arr, left, mid, right);
-			
-			
+			mergeSort(arr, left, mid, right, isAscending);
+
 		}
 		return arr;
 	}
 
-
-	public int searchElementUsingBinarySearch(double arr[], int first, int last, int mid, int search_value) {
+	public int searchElementUsingBinarySearch(double arr[], int first, int last, double search_value) {
 		// TODO Auto-generated method stub
 		mid = (first + last) / 2;
 
@@ -79,26 +87,18 @@ public class SearchingSortingHelper
 
 			if (arr[mid] < search_value) {
 				first = mid + 1;
-			}
-
-			else if (arr[mid] == search_value) {
-
-				System.out.println("Element found at middle index :" + mid);
+			} else if (arr[mid] == search_value) {
 				return mid;
-				//break;
-			}
-
-			else {
+			} else {
 				last = mid - 1;
 			}
 			mid = (first + last) / 2;
 		}
 		if (first > last) {
-			System.out.println("Element not found!!!");
 			return -1;
 
 		}
 		return 0;
 	}
-	
+
 }
